@@ -1,0 +1,58 @@
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+
+<IfModule mod_dir.c>
+
+DirectoryIndex index.php index.html index.htm default.htm default.html default.asp /index.php
+
+</IfModule>
+
+RewriteEngine on
+
+#RewriteCond %{HTTP_HOST} !^www.customessaymeister.com$
+#RewriteRule ^(.*)$ http://www.customessaymeister.com/$1 [R=301]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+
+
+RewriteRule ^service/(.*)$ index.php?pagetype=site_page&page=$1
+RewriteRule ^login$ index.php?page=login
+RewriteRule ^order$ index.php?page=order
+RewriteRule ^myorders$ index.php?page=myorders
+RewriteRule ^support$ index.php?page=support
+
+#category pages
+RewriteRule ^customessaytopics\/([^_]+).htm$ index.php?page=free_essays&category=$1&pagetype=category&pagetype=category
+#category pages counter
+RewriteRule ^customessaytopics\/([^_]+)_([0-9]+).htm$ index.php?page=free_essays&category=$1&pagetype=category&pagetype=category&counter=$2
+
+
+#free essay pages
+RewriteRule ^customessays/([^\+].*)/(.*).htm$ index.php?page=free_essays&category=$1&essaysample_id=$2&pagetype=free_essay
+
+#testimonials
+RewriteRule ^testimonials\-([0-9]+).htm$ index.php?page=testimonials&counter=$1&pagetype=testimonial
+
+#site pages
+RewriteRule ^([^\.\/]+).htm$ index.php?page=$1&pagetype=site_page
+#content pages
+RewriteRule ^([^\.\/]+)$ index.php?page=$1&pagetype=content_page
+
+
+RewriteRule ^merchants/([0-9]{7})/$ merchants.php?affiliate_id=$1
+
+
+</IfModule>
+
+<FilesMatch "^(config|func|db|content|common).php$">
+
+  Order deny,allow
+
+  Deny from all
+
+</FilesMatch>
+
+ErrorDocument 404 /index.php
+

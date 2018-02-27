@@ -1,0 +1,59 @@
+$font-family-body: 'ProximaNovaLight';
+body{
+    font-family: $font-family-body;
+    font-weight: 400;
+    font-size: 26px;
+    color: #3b3c3b;
+    overflow-x: hidden;
+    min-width: 320px;
+
+}
+img{
+    max-width: 100%;
+    height: auto;
+}
+a{
+    outline: none;
+    color: #ff6500;
+}
+p a{
+    text-decoration: underline;
+}
+.row-checkbox{
+    z-index:1;
+}
+.intl-tel-input{
+    width:240px;
+}
+form{
+    margin:0;
+    padding:0;
+}
+input[type="checkbox"]:focus{
+        outline:0;
+}
+
+
+.dim
+{
+    height:100%;
+    width:100%;
+    position:fixed;
+    left:0;
+    top:0;
+    z-index:1 !important;
+    background-color:white;
+    filter: alpha(opacity=25); /* internet explorer */
+    -khtml-opacity: 0.25;     /* khtml, old safari */
+    -moz-opacity: 0.25;       /* mozilla, netscape */
+    opacity: 0.25;           /* fx, safari, opera */
+}
+#ajaxLoad{
+    display:none;
+    position:fixed;
+    left:50%;
+    top:50%;
+    z-index:999999999;
+    margin-left:-30px;
+    margin-top:-30px;
+}

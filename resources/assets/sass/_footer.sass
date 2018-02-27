@@ -1,0 +1,30 @@
+#footer
+  background: $grey-2
+  .breadcrumb
+    .divider
+      color: $white-1
+  .content
+    text-align: center
+    .item
+      color: $grey-3
+      display: inline-block
+      +font(15px)
+      +bold
+      &.logo
+        height: 70px
+        +rel
+        top: 15px
+      &:not(.logo)
+        +rel
+        top: -15px
+        padding: 30px 20px
+      label
+        &:hover
+          +hovered-link($white-1)
+  .copyright
+    text-align: center
+    padding: 20px
+    border-top: 1px solid $grey-4
+    color: $grey-3
+    span
+      +bolder

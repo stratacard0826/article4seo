@@ -1,0 +1,264 @@
+/* 
+support form : begin
+*/
+.formSupport{
+    
+}
+.formSupport .table-row{
+    padding:0;
+    margin:0;
+}
+.formSupport .table-row label{
+    display:inline-block;
+    float:left;
+}
+
+.formSupport .table-row .col-row{
+    margin-top:20px;
+}
+.formSupport .checkboxLabel{
+    position:relative;
+    margin-right:20px;
+    margin-left:10px;
+
+}
+.formSupport input,select,textarea{
+    width:100%;
+    font-size:16px;
+    padding:10px;
+    border:solid 1px #eaeaea;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+
+}
+.formSupport textarea{
+    height:100px;
+}
+
+.formSupport .row-checkbox{
+    padding-top:5px;
+}
+.formSupport .btn-group{
+    margin:0;
+    padding:0;
+}
+/* 
+support form : end
+*/
+
+/* checkout form */
+
+.formCheckout .table-row .col-row{
+    margin-top:20px;
+}
+#formCheckout .form-control-feedback{
+    position:absolute;
+    margin-right:10px;
+    margin-top:1px;
+}
+#formCheckout .btn-group .form-control-feedback{
+    position:absolute;
+    margin-right:-50px;
+    margin-top:1px;
+}
+#formCheckout .btn {
+    outline:none;
+}
+
+
+
+
+/* order form */
+
+
+.formOrder{
+    
+}
+.formOrder .table-row{
+    padding:0;
+    margin:0;
+}
+.formOrder .table-row label{
+    display:inline-block;
+    float:left;
+}
+
+.formOrder .table-row .col-row{
+    margin-top:20px;
+}
+.formOrder .checkboxLabel{
+    position:relative;
+    margin-right:20px;
+    margin-left:10px;
+
+}
+.formOrder input,select,textarea{
+    width:100%;
+    font-size:16px;
+    padding:10px;
+    border:solid 1px #eaeaea;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+
+}
+.formOrder textarea{
+    height:100px;
+}
+
+.formOrder .row-checkbox{
+    padding-top:5px;
+    float:left;
+
+}
+.formOrder .row-checkbox .btn-group{
+    float:left;
+
+}
+
+.formOrder .btn-group{
+    margin:0;
+    padding:0;
+}
+.formOrder .input-date{
+    padding:0px;
+    margin:0px;
+}
+.formOrder .input-date-input:after {
+    content: "\e801";
+    font-family: "fontello";
+    display: block;
+    font-size: 16px;
+    color: #FF6500;
+    position:absolute;
+    
+    
+}
+.formOrder .calendar-icon {
+        float: left;
+        margin-left: 10px;
+        margin-top: -32px;
+        position: relative;
+        z-index: 2;
+        color: #fd6200;
+    }
+
+#dd-hidden {
+    display:none;
+}
+#datetime {
+    position: relative;
+    margin:0;
+    font-size:13px;
+    color:#000;
+
+}
+
+#formOrder .form-control-feedback{
+    position:absolute;
+    margin-right:30px;
+    margin-top:5px;
+}
+
+
+/* TICKET FORMs */
+.clRow{
+    width:auto;overflow:hidden;padding:0px;
+}
+.bgHighlight{
+    background-color:#f9f8f8;
+}
+.rowDetails{
+    padding:15px 20px 15px 0px;border-top:dotted 1px #ccc;
+}
+
+.rowTxt{
+    font-size:12px;word-wrap:break-word;
+}
+.agoTicket{
+    font-weight:bold;
+}
+#ajaxTicketArea{
+    overflow:hidden;
+}
+.rateTicketBlock{
+    display:none;position:absolute;margin-left:300px;margin-top:-10px;
+}
+.ticketBlock{
+    margin:20px 0px 20px 0px;
+}
+
+.iconMng{
+    font-size:30px;margin:15px 20px 0px 10px;color:#0081e6;
+}
+.iconCl{
+    font-size:30px;margin:15px 20px 20px 10px;
+}
+
+.ticNameC{
+    width: 65px;
+    height: 65px;
+    font-size:14px;
+    text-align:center;
+    vertical-align: middle;
+    float:left;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+    background:#0f627a;
+    color:white;
+    padding:15px;
+    padding-top:24px;
+    margin-left:-10px;
+    margin-right:10px;
+}
+.ticNameW{
+    width: 65px;
+    height: 65px;
+    font-size:14px;
+    text-align:center;
+    background: #024f03;
+    color:white;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+    padding:11px 11px 11px 11px;
+    float:left;
+    margin-left:15px;
+    margin-right:10px;
+}
+.ticTimeW{
+    color: #61a878;
+    font-size:13px;
+}
+.ticTimeC{
+    color: #4b89b5;
+    font-size:13px;
+}
+
+.ticket-wr-msg{
+    border:solid 1px #9adc9c;
+    padding:10px;
+    margin-left:55px;
+    background:#f0fcf0;
+    color:#024f03;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+.ticket-client-msg{
+    padding:10px;
+    margin-left:0px;
+    background:#dbf4fb;
+    color:#0f627a;
+    border:solid 1px #5aa5bb;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;   
+}
+
+/* account form */
+#btn-sms-verify{
+    margin:20px;
+}

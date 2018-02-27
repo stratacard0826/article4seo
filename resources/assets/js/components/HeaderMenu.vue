@@ -1,0 +1,389 @@
+<template>
+<!-- <vue-headroom Zindex="2"> -->
+<header class="b_header">
+
+  <div class="_header_top">
+    <div class="container">
+
+      <div class="flex-luis">
+        <div class="flex-item">
+          <ul class="_nav">
+            <li>
+              <a class="icon_menu" v-on:click="showMenu = !showMenu">
+                <div class="hamburger">
+                  <div class="top-bun"></div>
+                  <div class="meat"></div>
+                  <div class="bottom-bun"></div>
+                </div>
+                Menu
+              </a>
+            </li>
+            <li><a href="/order">Place An Order</a></li>
+            <li><a href="/support">Support</a></li>
+          </ul>
+        </div>
+
+        <div class="flex-item">
+          <ul class="_log_reg">
+            <li v-if="mode === 'client'">
+                <a class="_login" v-on:click="showLogin = !showLogin">Welcome {{fullname}}</a>
+            </li>
+            <li v-if="mode === 'guest'">
+                <a class="_login" v-on:click="showLogin = !showLogin">Log in</a>
+            </li>
+            <li v-if="mode === 'guest'"><a href="/register" class="_register">Register</a></li>
+          </ul>
+
+        </div>
+      </div>
+
+    </div>
+
+    <transition name="slide-fade">
+        <div class="_bl_menu" v-if="showMenu">
+      <div class="container">
+
+        <div class="_menu_in">
+
+          <button type="button" class="close_menu" v-on:click="showMenu = !showMenu"></button>
+
+          <div class="_menu_logo">
+            <a href="/"><img src="img/menu_logo.png" alt=""></a>
+          </div>
+
+          <div class="_menu_lists">
+
+            <div class="_list">
+              <h3>service shortcuts</h3>
+              <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/support">Support Center</a></li>
+                <li><a href="/order">Place An Order</a></li>
+              </ul>
+            </div>
+
+            <div class="_list">
+              <h3>about us</h3>
+              <ul>
+                <li><a href="/info/services">Our Services</a></li>
+                <li><a href="/info/writers">Our Writers</a></li>
+                <li><a href="/info/testimonials">Client Testimonials</a></li>
+                <li><a href="/info/discounts">Discounts</a></li>
+                <li><a href="/info/formatting">Formatting</a></li>
+                <li><a href="/info/privacy">Privacy Policy</a></li>
+                <li><a href="/info/terms">Terms of Service</a></li>
+                <li><a href="/info/faq">FAQ</a></li>
+              </ul>
+            </div>
+
+            <div class="_list">
+              <h3>support</h3>
+              <ul>
+                <li><a href="#">Live Chat</a></li>
+                <li><a href="tel:18888239060">1-888-823-9060 (Toll Free)</a></li>
+                <li><a href="tel:15186206761">1-518-620-6761 (Hotline)</a></li>
+                <li><a href="#">Submit a Ticket</a></li>
+              </ul>
+            </div>
+
+            <div class="_list">
+              <h3>resources</h3>
+              <ul>
+                <li><a href="#">Topic Hint Tool</a></li>
+              </ul>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+    </transition>
+
+    <transition name="slide-fade">
+        <div class="_bl_menu" v-if="showLogin">
+            <div class="container">
+                <div class="_menu_in">
+                    <button type="button" class="close_menu" v-on:click="showLogin = !showLogin"></button>
+                    <login v-if="mode === 'guest'"></login>
+                    <menuClient v-if="mode === 'client'"></menuClient>
+                </div>
+            </div>
+        </div>
+    </transition>
+  </div>
+
+</header>
+<!-- </vue-headroom> -->
+</template>
+
+<script>
+import login from './Login'
+import menuClient from './MenuClient'
+import MenuHelper from './HeaderMenuData.js'
+const menuHelper = new MenuHelper()
+export default {
+    components:{
+        login, menuClient,
+    },
+    data: () => ({
+        showMenu: false,
+        showLogin: false,
+        // menuData: [],
+
+
+    }),
+    props: {
+        mode: null,
+        fullname: null,
+    },
+    mounted() {
+        menuData = menuHelper.getMenu()
+    },
+    methods: {
+        submit: function(){
+            alert('test')
+        }
+    }
+
+}
+</script>
+
+<style type="sass" scoped>
+.slide-fade-enter-active {
+  transition: all .3s ease;
+}
+.slide-fade-leave-active {
+  transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active below version 2.1.8 */ {
+  transform: translateY(-10px);
+  opacity: 0;
+}
+
+.bounce-enter-active {
+  animation: bounce-in .5s;
+}
+.bounce-leave-active {
+  animation: bounce-in .5s reverse;
+}
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.b_header ._header_top {
+
+  background-color: #edf2f5;
+  position: relative;
+  z-index: 2; }
+  .b_header ._header_top ._bl_menu {
+    position: absolute;
+    overflow: hidden;
+    z-index: 2;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-image: linear-gradient(to right, #de5400 0%, #aa4102 20%, #de5400 100%);
+    padding: 18px 0 55px;
+     }
+  .b_header ._header_top ._menu_in {
+    text-align: center;
+    color: #ffffff;
+    position: relative; }
+  .b_header ._header_top .close_menu {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 21px;
+    height: 22px;
+    background-color: transparent;
+    border: none;
+    transition: all .2s linear;
+    background-repeat: no-repeat;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='21' height='21' viewBox='0 0 21 21'%3E%3Cdefs%3E%3Cpath id='f19ua' d='M1512.65 106l1.35-1.25-9.14-9.25 9.14-9.25-1.35-1.27-9.15 9.26-9.15-9.26-1.35 1.27 9.15 9.25-9.15 9.25 1.35 1.25 9.15-9.24z'/%3E%3C/defs%3E%3Cg%3E%3Cg transform='translate%28-1493 -85%29'%3E%3Cuse fill='%23fff' xlink:href='%23f19ua'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
+    .b_header ._header_top .close_menu:hover {
+      transform: rotate(180deg); }
+  .b_header ._header_top ._menu_lists {
+    display: flex;
+    justify-content: space-between;
+    padding: 45px 0 0; }
+    @media (max-width: 767px) {
+      .b_header ._header_top ._menu_lists {
+        display: block; } }
+    .b_header ._header_top ._menu_lists ._list {
+      text-align: left; }
+      @media (max-width: 991px) {
+        .b_header ._header_top ._menu_lists ._list {
+          max-width: 24%; } }
+      @media (max-width: 767px) {
+        .b_header ._header_top ._menu_lists ._list {
+          max-width: none;
+          width: 49%;
+          display: inline-block;
+          vertical-align: top;
+          margin: 0 0 20px; } }
+      @media (max-width: 440px) {
+        .b_header ._header_top ._menu_lists ._list {
+          width: 100%; } }
+      .b_header ._header_top ._menu_lists ._list h3 {
+        font-size: 24px;
+        text-transform: uppercase;
+        font-weight: 500;
+        margin: 0 0 25px; }
+        @media (max-width: 991px) {
+          .b_header ._header_top ._menu_lists ._list h3 {
+            font-size: 17px; } }
+        @media (max-width: 767px) {
+          .b_header ._header_top ._menu_lists ._list h3 {
+            margin: 0 0 10px; } }
+      .b_header ._header_top ._menu_lists ._list li {
+        display: block; }
+        .b_header ._header_top ._menu_lists ._list li + li {
+          margin: 5px 0 0; }
+        .b_header ._header_top ._menu_lists ._list li a {
+          color: #ffffff;
+          font-size: 20px;
+          font-weight: 300; }
+          @media (max-width: 991px) {
+            .b_header ._header_top ._menu_lists ._list li a {
+              font-size: 15px; } }
+          .b_header ._header_top ._menu_lists ._list li a:hover {
+            text-decoration: underline; }
+  .b_header ._header_top .flex-luis {
+    padding: 8px 0; }
+    @media (max-width: 600px) {
+      .b_header ._header_top .flex-luis {
+        display: block;
+        text-align: center; } }
+  .b_header ._header_top ul {
+    margin: 0;
+    padding: 0;
+    list-style: none; }
+    .b_header ._header_top ul li {
+      display: inline-block; }
+    .b_header ._header_top ul a {
+      color: #232428;
+      font-size: 16px; }
+      @media (max-width: 600px) {
+        .b_header ._header_top ul a {
+          font-size: 14px; } }
+  .b_header ._header_top ._nav {
+    font-size: 0; }
+    @media (max-width: 600px) {
+      .b_header ._header_top ._nav {
+        margin: 0 0 15px; } }
+    .b_header ._header_top ._nav li {
+      position: relative; }
+      .b_header ._header_top ._nav li + li {
+        margin: 0 0 0 40px; }
+        @media (max-width: 767px) {
+          .b_header ._header_top ._nav li + li {
+            margin: 0 0 0 35px; } }
+        .b_header ._header_top ._nav li + li:before {
+          position: absolute;
+          right: 100%;
+          margin: 0 18px 0 0;
+          top: 0;
+          font-size: 16px;
+          content: '/'; }
+          @media (max-width: 767px) {
+            .b_header ._header_top ._nav li + li:before {
+              margin: 0 15px 0 0; } }
+    .b_header ._header_top ._nav a {
+      text-decoration: none;
+      transition: all .2s linear; }
+      .b_header ._header_top ._nav a:hover {
+        color: #ff6600; }
+  .b_header ._header_top .icon_menu {
+    cursor: pointer;
+    color: #ff6600; }
+    .b_header ._header_top .icon_menu:hover .hamburger .top-bun {
+      -webkit-animation: burger-hover 1s infinite ease-in-out alternate;
+      animation: burger-hover 1s infinite ease-in-out alternate; }
+    .b_header ._header_top .icon_menu:hover .hamburger .meat {
+      -webkit-animation: burger-hover 1s infinite ease-in-out alternate forwards 200ms;
+      animation: burger-hover 1s infinite ease-in-out alternate forwards 200ms; }
+    .b_header ._header_top .icon_menu:hover .hamburger .bottom-bun {
+      -webkit-animation: burger-hover 1s infinite ease-in-out alternate forwards 400ms;
+      animation: burger-hover 1s infinite ease-in-out alternate forwards 400ms; }
+  .b_header ._header_top .hamburger {
+    display: inline-block;
+    vertical-align: middle;
+    width: 23px;
+    height: 16px;
+    cursor: pointer;
+    overflow: hidden;
+    margin: -3px 11px 0 0; }
+    .b_header ._header_top .hamburger div {
+      float: right;
+      height: 2px;
+      width: 70%;
+      transition: all .2s linear;
+      background-image: linear-gradient(to right, #ff5404 0%, #ff5404 1%, #ff8500 100%);
+      margin: 0 0 5px; }
+      .b_header ._header_top .hamburger div:last-of-type {
+        margin: 0; }
+    .b_header ._header_top .hamburger .meat {
+      width: 100%;
+      transition: all 200ms ease-in-out; }
+    .b_header ._header_top .hamburger .bottom-bun {
+      width: 80%;
+      transition: all 400ms ease-in-out; }
+@-webkit-keyframes burger-hover {
+  0% {
+    width: 100%; }
+  50% {
+    width: 50%; }
+  100% {
+    width: 100%; } }
+@keyframes burger-hover {
+  0% {
+    width: 100%; }
+  50% {
+    width: 50%; }
+  100% {
+    width: 100%; } }
+.b_header ._log_reg {
+  font-size: 0; }
+  .b_header ._log_reg li {
+    position: relative; }
+    .b_header ._log_reg li + li {
+      margin: 0 0 0 40px; }
+      .b_header ._log_reg li + li:before {
+        position: absolute;
+        right: 100%;
+        margin: 0 18px 0 0;
+        top: 0;
+        font-size: 16px;
+        content: '/'; }
+  .b_header ._log_reg a {
+    display: inline-block;
+    transition: all .2s linear; }
+    .b_header ._log_reg a:hover {
+      color: #ff6600; }
+
+.b_header ._login {
+  position: relative;
+  padding: 0 0 0 31px; }
+  .b_header ._login:before {
+    position: absolute;
+    content: '';
+    left: 0;
+    top: 50%;
+    transform: translate(0, -50%);
+    width: 16px;
+    height: 16px;
+    background-repeat: no-repeat;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='16' height='16' viewBox='0 0 16 16'%3E%3Cdefs%3E%3Cpath id='qv1ja' d='M1371.55 32.83a1 1 0 0 1-1.38-.28c-.07-.1-1.82-2.55-6.17-2.55-4.41 0-6.15 2.53-6.17 2.55a1 1 0 0 1-1.66-1.1c.1-.15 2.36-3.45 7.83-3.45 5.47 0 7.74 3.3 7.83 3.44a1 1 0 0 1-.28 1.4zM1360 26v-5a4 4 0 1 1 8 0v5a1 1 0 1 1-2 0v-5a2 2 0 1 0-4 0v5a1 1 0 1 1-2 0z'/%3E%3C/defs%3E%3Cg%3E%3Cg transform='translate%28-1356 -17%29'%3E%3Cuse fill='%23f60' xlink:href='%23qv1ja'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
+</style>

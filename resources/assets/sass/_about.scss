@@ -1,0 +1,150 @@
+.b_about{
+  padding: 80px 0 95px;
+  background-color: #f5f6f8;
+
+  @media(max-width: $screen-sm-max){
+    padding: 30px 0;
+  }
+
+  ._h4{
+    margin: 0 0 65px;
+
+    @media(max-width: $screen-sm-max){
+      margin: 0 0 30px;
+    }
+  }
+
+  ._paragraph{
+    h3{
+      font-size: 20px;
+      font-weight: 300;
+      margin: 0 0 25px;
+      text-align: center;
+    }
+
+    p{
+      margin: 0 0 50px;
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.8;
+
+      @media(max-width: $screen-xs-max){
+        font-size: 14px;
+        line-height: 1.6;
+      }
+    }
+  }
+
+  ._content{
+    @clearfix();
+
+    h3{
+      font-size: 20px;
+      font-weight: 300;
+      margin: 0 0 25px;
+
+      @media(max-width: $screen-md-max){
+        margin: 0 0 15px;
+      }
+    }
+
+    p{
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.8;
+      margin: 0 0 45px;
+
+      @media(max-width: $screen-md-max){
+        margin: 0 0 15px;
+      }
+
+      @media(max-width: $screen-xs-max){
+        font-size: 14px;
+        line-height: 1.6;
+      }
+    }
+
+    ul{
+      padding: 0;
+      max-width: 406px;
+      margin: 0 0 20px;
+      list-style: none;
+
+      li{
+        padding: 0 0 0 23px;
+        position: relative;
+
+        &:before{
+          position: absolute;
+          content: '';
+          width: 6px;
+          height: 6px;
+          background-color: #ff6600;
+          border-radius: 50%;
+          left: 0;
+          top: 7px;
+        }
+
+        +li{
+          margin: 25px 0 0;
+
+          @media(max-width: $screen-md-max){
+            margin: 15px 0 0;
+          }
+        }
+      }
+    }
+  }
+
+  ._right_side{
+    float: right;
+    width: 100%;
+    max-width: 445px;
+    position: relative;
+    z-index: 1;
+
+    @media(max-width: $screen-sm-max){
+      float: none;
+      margin: 0 auto 35px;
+    }
+
+
+    ._img{
+      position: relative;
+      &:after{
+        position: absolute;
+        z-index: -1;
+        content: '';
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(to right, #ff5404 0%, #ff5404 1%, #ff8500 100%);
+        top: 25px;
+        left: 25px;
+
+        @media(max-width: $screen-sm-max){
+          top: 15px;
+          left: 15px;
+        }
+      }
+
+      img{
+        max-width: 100%;
+      }
+    }
+  }
+
+  ._left_side{
+    float: left;
+    width: 100%;
+    max-width: 555px;
+
+    @media(max-width: $screen-md-max){
+      max-width: 450px;
+    }
+
+    @media(max-width: $screen-sm-max){
+      float: none;
+      max-width: none;
+    }
+  }
+}

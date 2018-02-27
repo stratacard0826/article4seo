@@ -1,0 +1,190 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css?family=Barlow+Condensed|Barlow|Nunito|Roboto");
+@font-face {
+  font-family: 'ProximaNovaSemibold';
+  src: url("../fonts/ProximaNovaSemibold.eot");
+  src: url("../fonts/ProximaNovaSemibold.eot") format("embedded-opentype"), url("../fonts/ProximaNovaSemibold.woff2") format("woff2"), url("../fonts/ProximaNovaSemibold.woff") format("woff"), url("../fonts/ProximaNovaSemibold.ttf") format("truetype"), url("../fonts/ProximaNovaSemibold.svg#ProximaNovaSemibold") format("svg"); }
+
+@font-face {
+  font-family: 'ProximaNovaLightItalic';
+  src: url("../fonts/ProximaNovaLightItalic.eot");
+  src: url("../fonts/ProximaNovaLightItalic.eot") format("embedded-opentype"), url("../fonts/ProximaNovaLightItalic.woff2") format("woff2"), url("../fonts/ProximaNovaLightItalic.woff") format("woff"), url("../fonts/ProximaNovaLightItalic.ttf") format("truetype"), url("../fonts/ProximaNovaLightItalic.svg#ProximaNovaLightItalic") format("svg"); }
+
+@font-face {
+  font-family: 'ProximaNovaRegular';
+  src: url("../fonts/ProximaNovaRegular.eot");
+  src: url("../fonts/ProximaNovaRegular.eot") format("embedded-opentype"), url("../fonts/ProximaNovaRegular.woff2") format("woff2"), url("../fonts/ProximaNovaRegular.woff") format("woff"), url("../fonts/ProximaNovaRegular.ttf") format("truetype"), url("../fonts/ProximaNovaRegular.svg#ProximaNovaRegular") format("svg"); }
+
+@font-face {
+  font-family: 'ProximaNovaExtrabold';
+  src: url("../fonts/ProximaNovaExtrabold.eot");
+  src: url("../fonts/ProximaNovaExtrabold.eot") format("embedded-opentype"), url("../fonts/ProximaNovaExtrabold.woff2") format("woff2"), url("../fonts/ProximaNovaExtrabold.woff") format("woff"), url("../fonts/ProximaNovaExtrabold.ttf") format("truetype"), url("../fonts/ProximaNovaExtrabold.svg#ProximaNovaExtrabold") format("svg"); }
+
+@font-face {
+  font-family: 'ProximaNovaBold';
+  src: url("../fonts/ProximaNovaBold.eot");
+  src: url("../fonts/ProximaNovaBold.eot") format("embedded-opentype"), url("../fonts/ProximaNovaBold.woff2") format("woff2"), url("../fonts/ProximaNovaBold.woff") format("woff"), url("../fonts/ProximaNovaBold.ttf") format("truetype"), url("../fonts/ProximaNovaBold.svg#ProximaNovaBold") format("svg"); }
+
+@font-face {
+  font-family: 'ProximaNovaLight';
+  src: url("../fonts/ProximaNovaLight.eot");
+  src: url("../fonts/ProximaNovaLight.eot") format("embedded-opentype"), url("../fonts/ProximaNovaLight.woff2") format("woff2"), url("../fonts/ProximaNovaLight.woff") format("woff"), url("../fonts/ProximaNovaLight.ttf") format("truetype"), url("../fonts/ProximaNovaLight.svg#ProximaNovaLight") format("svg"); }
+
+@font-face {
+  font-family: 'Glyphter';
+  src: url("../fonts/Glyphter.eot");
+  src: url("../fonts/Glyphter.eot?#iefix") format("embedded-opentype"), url("../fonts/Glyphter.woff") format("woff"), url("../fonts/Glyphter.ttf") format("truetype"), url("../fonts/Glyphter.svg#Glyphter") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+[class*='ico-']:before {
+  display: inline-block;
+  font-family: 'Glyphter';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.ico-stick-ico5:before {
+  content: '\0041'; }
+
+.ico-stick-ico6:before {
+  content: '\0042'; }
+
+.ico-stick-ico7:before {
+  content: '\0043'; }
+
+.ico-stick-ico8:before {
+  content: '\0044'; }
+
+.ico-stick-ico1:before {
+  content: '\0045'; }
+
+.ico-stick-ico2:before {
+  content: '\0046'; }
+
+.ico-stick-ico3:before {
+  content: '\0047'; }
+
+.ico-stick-ico4:before {
+  content: '\0048'; }
+
+@font-face {
+  font-family: 'fontello';
+  src: url("../fonts/fontello.eot?41656770");
+  src: url("../fonts/fontello.eot?41656770#iefix") format("embedded-opentype"), url("../fonts/fontello.woff2?41656770") format("woff2"), url("../fonts/fontello.woff?41656770") format("woff"), url("../fonts/fontello.ttf?41656770") format("truetype"), url("../fonts/fontello.svg?41656770#fontello") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'fontello';
+    src: url('fontello.svg?79940885#fontello') format('svg');
+  }
+}
+*/
+[class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */ }
+
+.icon-clock:before {
+  content: '\e800'; }
+
+/* '' */
+.icon-calendar:before {
+  content: '\e801'; }
+
+/* '' */
+.icon-ok:before {
+  content: '\e802'; }
+
+/* '' */
+.icon-left-open-big:before {
+  content: '\e803'; }
+
+/* '' */
+.icon-left:before {
+  content: '\e804'; }
+
+/* '' */
+.icon-right:before {
+  content: '\e805'; }
+
+/* '' */
+.icon-right-open-big:before {
+  content: '\e806'; }
+
+/* '' */
+.icon-minus:before {
+  content: '\e807'; }
+
+/* '' */
+.icon-plus:before {
+  content: '\e808'; }
+
+/* '' */
+.icon-facebook-1:before {
+  content: '\e809'; }
+
+/* '' */
+.icon-cog:before {
+  content: '\e80a'; }
+
+/* '' */
+.icon-resize-full:before {
+  content: '\e80b'; }
+
+/* '' */
+.icon-upload:before {
+  content: '\e80c'; }
+
+/* '' */
+.icon-fax:before {
+  content: '\e80d'; }
+
+/* '' */
+.icon-phone:before {
+  content: '\e80e'; }
+
+/* '' */
+.icon-link:before {
+  content: '\e80f'; }
+
+/* '' */
+.icon-help-circled:before {
+  content: '\e810'; }
+
+/* '' */
+.icon-clock-1:before {
+  content: '\e811'; }
+
+/* '' */
+
+/*# sourceMappingURL=fonts.css.map */

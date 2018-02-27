@@ -1,0 +1,61 @@
+#about
+  background: $white-2
+  padding: 50px 0
+  .main-header, .main-title
+    +center-align
+  .main-title
+    +block
+    label
+      +lp-main-title
+  .main-header
+    padding: 20px 0
+    label
+      +font(45px)
+  .title
+    padding: 20px 0
+    +bold
+    &.center
+      +center-align
+    &.left
+      +left-align
+    label
+      +font(20px)
+  .details
+    p
+      +font(17px)
+      line-height: 25px
+  .column
+    &.left
+      ul
+        padding: 0px
+        li
+          +rel
+          list-style-type: none
+          label
+            line-height: 20px
+            &:not(hidden)
+              +abs
+            &.hidden
+              visibility: hidden
+              +rel
+          +font(17px)
+          i::before
+            +rel
+            top: -6px
+            left: -5px
+            content: "•"
+            color: $orange-6
+            +font(30px)
+    &.right
+      .sample
+        background: $orange-6
+        +inline-block
+        width: 450px
+        margin: 50px
+        img
+          margin: 0px
+          width: 450px
+          height: auto
+          +rel
+          top: -25px
+          left: -30px

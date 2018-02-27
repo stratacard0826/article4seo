@@ -1,0 +1,115 @@
+<template>
+<div>
+    <div class="container">
+        <div class="_h3">our clients</div>
+        <div class="_h4">Real Testimonials</div>
+    </div>
+    <carousel-3d :controls-visible="true" :controls-prev-html="'&#10092;'" :controls-next-html="'&#10093;'"
+               :controls-width="30" :controls-height="60" :clickable="true" :width="600" :height="400" :loop="false" @last-slide="onLastSlide">
+        <slide v-for="(slide, i) in fb" :index="i" :key="i">
+            <div class="_slide_body">
+                <!-- <figure> -->
+                <!-- <img src="https://placehold.it/360x270"> -->
+                    <!-- <figcaption> -->
+                      {{slide.details}}
+                    <!-- </figcaption> -->
+                <!-- </figure> -->
+            </div>
+        </slide>
+
+    </carousel-3d>
+</div>
+</template>
+
+<script>
+// import FeedbackHelper from './FeedbackHelper.js'
+// const fb = new FeedbackHelper()
+//const fb;
+
+import { Carousel3d, Slide } from 'vue-carousel-3d';
+export default {
+    components: {
+      Carousel3d,
+      Slide
+    },
+    data() {
+        return{
+            fb: []
+        }
+    },
+    methods: {
+        onAfterSlideChange(index) {
+          console.log('@onAfterSlideChange Callback Triggered', 'Slide Index ' + index)
+        },
+        onBeforeSlideChange(index) {
+          console.log('@onBeforeSlideChange Callback Triggered', 'Slide Index ' + index)
+        },
+        onLastSlide(index) {
+          console.log('@onLastSlide Callback Triggered', 'Slide Index ' + index)
+          this.addSlide(this.fb)
+
+        },
+        loadData(index){
+
+        },
+        addSlide(arr) {
+            axios.get('/webapi/loadJsonTestimonials')
+                .then(function (response) {
+                        //self.fb = response.data;
+                        //arr = arr.concat(response.data)
+                        arr.push({details:'asdfdsfokndfovjndf'})
+                    });
+        },
+        removeSlide() {
+            this.slides.pop()
+        }
+    },
+    mounted() {
+        var self = this;
+        axios.get('/webapi/loadJsonTestimonials')
+            .then(function (response) {
+                    self.fb = response.data;
+                    });
+    },
+    created() {
+
+    }
+}
+</script>
+
+<style lang="scss" scoped>
+
+.carousel-3d-container figure {
+  margin:0;
+
+}
+
+.carousel-3d-container figcaption {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  bottom: 0;
+  position: absolute;
+  bottom: 0;
+  padding: 15px;
+  font-size: 12px;
+  min-width: 100%;
+  box-sizing: border-box;
+}
+.carousel-3d-slide.current {
+    background: url('../../img/our_clients_bg.jpg') no-repeat center;
+    border:none;
+    padding:30px;
+    font-size: 16px;
+font-weight: 300;
+line-height: 28px;
+}
+.carousel-3d-slide {
+    background: url('../../img/our_clients_bg.jpg') no-repeat center;
+    border:none;
+    padding:30px;
+    font-size: 16px;
+font-weight: 300;
+line-height: 28px;
+}
+</style>

@@ -1,0 +1,190 @@
+@extends ('layouts.app')
+
+
+
+@section('content')
+
+<div class="ui divider"></div>
+
+<div class="ui text container">
+Our reengineered ordering process accepts multiple orders that can be entered into a cart and paid in one go.
+
+</div>
+
+
+
+<div class="ui text container">
+
+{{-- order form --}}
+<h1 class="ui horizontal header divider">Order Form</h1>
+
+{!! Form::open(['class' => 'ui form fluid'] ) !!}
+
+
+@php
+    $turnaround = array(
+        '12' => '12 hours',
+        '24' => '24 hours',
+        '48' => '48 hours',
+    );
+
+    echo "batchid is ". session('batchid');
+
+@endphp
+
+
+
+{{-- type of project --}}
+<div class="field">
+{{Form::label('type', 'Type of project')}}
+{{  Form::select('type', $project_types, old('type'), ['class' => 'ui fluid search dropdown', 'placeholder' => 'Type of project' ])  }}
+</div>
+
+{{-- pagecount --}}
+<div class="field">
+{{Form::label('pages', 'How long is your project?')}}
+{{  Form::select('pages', $pages_arr, null, ['class' => 'ui fluid search dropdown', 'placeholder' => 'Pagecount' ])  }}
+</div>
+
+{{-- quality level --}}
+<div class="field">
+{{Form::label('academiclevel', 'What is the required quality level?')}}
+{{  Form::select('academiclevel', $academiclevel, null, ['class' => 'ui fluid search dropdown', 'placeholder' => 'Quality level' ])  }}
+</div>
+
+
+
+{{-- subject --}}
+<div class="field">
+{{Form::label('subject', 'Subject?')}}
+{{  Form::select('subject', $subjects, old('subject'), ['class' => 'ui fluid search dropdown', 'placeholder' => 'Subject' ])  }}
+</div>
+
+{{-- project title --}}
+<div class="field">
+   {{Form::label('title', 'What is the title of your project?')}}
+   {{Form::text('title', old('title'), ['class' => 'form-control', 'placeholder' => 'Project title' ])}}
+</div>
+
+{{-- project details --}}
+<div class="field">
+    {{Form::label('details', 'Detailed instructions')}}
+    {{Form::textarea('details', old('details'), ['class' => 'form-control', 'placeholder' => 'Instructions' ])}}
+</div>
+
+{{-- citation style --}}
+<div class="field">
+{{Form::label('style', 'Citation style')}}
+{{  Form::select('style', $citation_style, old('style'), ['class' => 'ui fluid search dropdown', 'placeholder' => 'Citation style' ])  }}
+</div>
+
+{{-- sources --}}
+<div class="field">
+{{Form::label('sources', 'How many outside sources are you required to use?')}}
+{{  Form::selectRange('sources', 0, 50, old('sources'), ['class' => 'ui fluid search dropdown', 'placeholder' => 'Sources' ])  }}
+
+</div>
+
+
+
+
+
+<div class="field">
+{{-- additional files --}}
+    <div class="ui checked checkbox">
+      <input type="checkbox" checked="">
+      <label>Additional files</label>
+    </div>
+</div>
+
+    {{-- faxes --}}
+<div class="field">
+    <div class="ui checked checkbox">
+      <input type="checkbox" checked="">
+      <label>Faxes</label>
+    </div>
+</div>
+    {{-- outline --}}
+<div class="field">
+    <div class="ui checked checkbox">
+      <input type="checkbox" checked="">
+      <label>Outline</label>
+    </div>
+</div>
+
+    {{-- abstract --}}
+<div class="field">
+    <div class="ui checked checkbox">
+      <input type="checkbox" checked="">
+      <label>Abstract</label>
+    </div>
+</div>
+
+
+
+{{-- discount code --}}
+<div class="seven wide field">
+{{Form::label('discount_code', 'Do you have a discount code?')}}
+{{Form::text('discount_code', '', ['class' => 'form-control', 'placeholder' => 'Discount code' ])}}
+</div>
+
+{{-- writer preference --}}
+<h4 class="ui horizontal header divider">Writer preferences</h4>
+
+{{-- preferred writers --}}
+<div class="two fields">
+
+    <div class="field">
+
+        <div class="ui pointing below label green">
+          Preferred writers (15% surcharge)
+        </div>
+
+        <div class="ui icon button orange" data-tooltip="Add users to your feed">
+          <i class="add icon"></i>
+        </div>
+
+
+
+
+        {{Form::text('pr_wr[]', '', ['class' => 'form-control', 'placeholder' => 'writer ID' ])}}
+
+
+    </div>
+
+
+    <div class="field">
+
+
+
+        <div class="ui pointing below label red">
+          Blocked writers (no surcharge)
+        </div>
+
+        <div class="ui icon button orange" data-tooltip="Add users to your feed">
+          <i class="add icon"></i>
+        </div>
+
+
+
+
+        {{Form::text('bl_wr[]', '', ['class' => 'form-control', 'placeholder' => 'writer ID' ])}}
+
+
+
+    </div>
+</div>
+
+
+
+
+<div class="ui divider"></div>
+{{Form::Submit('Add order to cart', ['class' => 'ui button orange large'])}}
+
+{{ Form::token() }}
+
+{!! Form::close() !!}
+
+</div>
+
+@endsection

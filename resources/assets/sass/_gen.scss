@@ -1,0 +1,41 @@
+*{outline: none!important;&:focus, &:active{outline: none;}}
+
+body{
+  font-family: 'ProximaNova', sans-serif;
+  line-height: normal;
+}
+
+h1, h2, h3, h4, h5{
+  font-family: 'ProximaNova', sans-serif;
+}
+
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  padding: 0 15px;
+}
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+    padding: 0 30px;
+  }
+}
+
+.container:before,
+.container:after {
+  display: table;
+  content: " ";
+}
+.container:after{
+  clear: both;
+}

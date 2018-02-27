@@ -1,0 +1,78 @@
+@extends('layouts.app')
+
+@section('content')
+
+@php
+    $start = ($orders->currentPage()-1) * $orders->perPage() + 1;
+@endphp
+
+
+<div class="ui container">
+<h1>My Orders</h1>
+
+
+@if(count($orders) > 0)
+
+<table class="ui table">
+    <thead>
+        <tr>
+            <th class="one wide center aligned">#</th>
+            <th class="two wide center aligned">Date</th>
+            <th class="three wide center aligned">ID</th>
+            <th class="six wide center aligned">Title</th>
+            <th class="two wide center aligned">Price</th>
+            <th class="two wide center aligned">Status</th>
+        </tr>
+    </thead>
+    <tbody>
+
+
+@foreach($orders as $order)
+    <tr>
+        <td>
+            {{$start}}
+        </td>
+        <td>
+            <div class="ui orange label">{{$order->ts_ordered->diffForHumans()}}</div>
+        </td>
+        <td>
+            <div class="ui basic label">{{$order->orderid}}</div>
+        </td>
+
+        <td>
+            <div><h4><a href="/myorders/details/{{$order->orderid}}">"{{$order->title}}"</a></h4></div>
+        </td>
+
+        <td>
+            <div class="ui basic label right">
+                <i class="dollar icon"></i> {{$order->total}}
+            </div>
+        </td>
+        <td class="center aligned">
+            <div class="ui basic label">{{$order->status}}</div>
+        </td>
+    </tr>
+
+@php
+    $start++;
+@endphp
+@endforeach
+
+
+</tbody>
+
+</table>
+{{-- pagination --}}
+{{ $orders->links('vendor.pagination.semantic-ui') }}
+
+@else
+<p>No projects found</p>
+
+@endif
+
+
+
+</div>
+
+
+@endsection
